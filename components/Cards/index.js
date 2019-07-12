@@ -18,11 +18,22 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
+const cardsContainer = document.querySelector('.cards-container');
+
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then(data => {
         console.log('data: ',data);
         const articlesObject = data.data.articles;
         console.log(articlesObject);
+        Object.values(articlesObject).forEach(array => {
+            const articlesArray = array;
+            console.log(articlesArray);
+            articlesArray.forEach(articleObject => {
+                console.log(articleObject);
+                const articleCard = createCard(articleObject);
+                cardsContainer.appendChild(articleCard);
+            })
+        })
     })
     .catch(error => {
         console.log('The API is currently down, try again later', error);
@@ -56,30 +67,7 @@ function createCard(article) {
     img.setAttribute('src', article.authorPhoto);
 
     return card;
-
 }
 
 
 
-
-
-
-
-
-
-
-
-// axios.get('https://lambda-times-backend.herokuapp.com/topics')
-//     .then(data => {
-//         console.log('data: ',data)
-//         const topicList = data.data.topics;
-//         console.log(topicList);
-//         topicList.forEach(topic => {
-//             const tab = createTab(topic);
-//             topics.appendChild(tab);
-//         })
-
-//     })
-//     .catch(error => {
-//         console.log('The API is currently down, try again later', error);
-//     })
