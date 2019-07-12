@@ -61,7 +61,13 @@ function createCarousel() {
     for (let i = 0; i < imgArray.length; i++) {
       imgArray[i].classList.remove('current-index');
     }
-    currentSlide += 1;
+    if (currentSlide < imgArray.length-1) {
+      currentSlide += 1;
+    }
+    else {
+      currentSlide = 0;
+    }
+    
     imgArray[currentSlide].classList.add('current-index');
 
   })
