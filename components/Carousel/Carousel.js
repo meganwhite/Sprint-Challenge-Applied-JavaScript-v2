@@ -17,6 +17,9 @@
     <div class="right-button"> > </div>
   </div>
 */
+const carouselContainer = document.querySelector('.carousel-container');
+console.log(carouselContainer);
+carouselContainer.appendChild(createCarousel());
 
 
 function createCarousel() {
@@ -33,6 +36,7 @@ function createCarousel() {
   carousel.classList.add('carousel');
   leftButton.classList.add('left-button');
   rightButton.classList.add('right-button');
+  img1.classList.add('current-index');
 
   // create structure
   carousel.appendChild(leftButton);
@@ -47,6 +51,20 @@ function createCarousel() {
   img2.setAttribute('src','./assets/carousel/computer.jpeg');
   img3.setAttribute('src','./assets/carousel/trees.jpeg');
   img4.setAttribute('src','./assets/carousel/turntable.jpeg');
+
+
+  // const images = document.querySelectorAll('img');
+
+  
+  // add event listeners
+  rightButton.addEventListener('click', images => {
+    let imgArray = [];
+    imgArray.push(img1,img2,img3,img4);
+    for (let i = 0; i < imgArray.length; i++) {
+      imgArray[i].classList.remove('current-index');
+    }
+
+  })
 
   return carousel;
 
