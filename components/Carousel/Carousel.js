@@ -18,7 +18,6 @@
   </div>
 */
 const carouselContainer = document.querySelector('.carousel-container');
-console.log(carouselContainer);
 carouselContainer.appendChild(createCarousel());
 
 
@@ -53,9 +52,8 @@ function createCarousel() {
   img4.setAttribute('src','./assets/carousel/turntable.jpeg');
 
 
-  // const images = document.querySelectorAll('img');
-
   
+  let currentSlide = 0;
   // add event listeners
   rightButton.addEventListener('click', images => {
     let imgArray = [];
@@ -63,9 +61,11 @@ function createCarousel() {
     for (let i = 0; i < imgArray.length; i++) {
       imgArray[i].classList.remove('current-index');
     }
+    currentSlide += 1;
+    imgArray[currentSlide].classList.add('current-index');
 
   })
-
+  
   return carousel;
 
 }
