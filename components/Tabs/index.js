@@ -43,18 +43,3 @@ function createTab(tabTopic) {
 
 
 
-
-
-
-
-// axios.get('https://api.github.com/users/meganwhite')
-//   .then(object => {
-//     console.log('Github info: ', object)
-//     const myData = object.data;
-//     console.log(myData);
-//     const userCard = createCard(myData);
-//     cards.appendChild(userCard);
-//   })
-//   .catch(error => {
-//     console.log('The API is currently down, try again later', error)
-//   })
